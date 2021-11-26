@@ -251,7 +251,12 @@ export const Editable = (props: EditableProps) => {
   // needs to be manually focused.
   useEffect(() => {
     if (ref.current && autoFocus) {
-      ref.current.focus()
+      if (ctrl.setSelectionRange) {
+        ctrl.focus();
+        ctrl.setSelectionRange(Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY);
+      }
+      else
+        ref.current.focus();
     }
   }, [autoFocus])
 
