@@ -254,8 +254,8 @@ export const Editable = (props: EditableProps) => {
       if(window.getSelection && document.createRange) {
         const range = document.createRange();
         node.focus();
-        range.setStart(node, node.childNodes.length);
-        range.setEnd(node, node.childNodes.length);
+        range.setStart(ref.current, ref.current.childNodes.length);
+        range.setEnd(ref.current, ref.current.childNodes.length);
         const sel = window.getSelection();
         sel.removeAllRanges();
         sel.addRange(range);
